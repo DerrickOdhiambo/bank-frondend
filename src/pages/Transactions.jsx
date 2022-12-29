@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useFetch } from '../hooks/useFetch';
+import { sliceString } from '../utils/utils';
 
 const Transactions = () => {
   const { user } = useAuthContext();
@@ -33,7 +34,7 @@ const Transactions = () => {
               </tr>
               {userTransactions?.map((item) => (
                 <tr key={item?._id}>
-                  <td>{item?._id}</td>
+                  <td>{item?.id ? sliceString(item?._id, 7) : item?.id}</td>
                   <td>{new Date(item?.createdAt).toLocaleDateString()}</td>
                   <td>{item?.transactionType}</td>
                   <td>{item?.amount}</td>
