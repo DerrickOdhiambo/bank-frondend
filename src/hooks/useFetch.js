@@ -17,8 +17,6 @@ export const useFetch = () => {
     );
     const json = await response.json();
 
-    console.log(json);
-
     if (response.ok) {
       setUserTransactions(json);
     }
