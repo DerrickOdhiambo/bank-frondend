@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@400;500;600;700;800;900&display=swap');
+
+$primary__color: #59b98c;
+$secondary__color: #1c424f;
+$accent__color: #f5d32d;
+$error__message: #bd0202;
+$font__color__1: #eaf3f6;
+$font__color__2: #cddfe5;
+$background__1: #f4faf3;
+$background__2: #f3f3f3;
+$background__3: #b6b5b5;
+$black__shade__3: #585151;
+$black__shade__4: #a7a2a2;
+$black__shade__2: #2e2626;
+$black__shade__1: #010101;
+$shadow: 0px 2px 4px 0
+  rgba(
+    $color: #000000,
+    $alpha: 0.1,
+  );
+$tablet: 780px;
+$large-phone: 600px;
+$phone: 356px;
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: $background__1;
+  width: 85%;
+  margin: 0 auto;
+
+  @media screen and (max-width: $large-phone) {
+    width: 95%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+/* header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  // background: $secondary__color;
+  // border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+  // box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.32);
+  .logo {
+    a {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $black__shade__1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      img {
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+
+    ul {
+      display: flex;
+      li {
+        list-style-type: none;
+        margin: 0 1rem;
+        a {
+          color: $black__shade__2;
+          font-weight: 400;
+          font-size: 15px;
+          transition: all 0.2s;
+
+          &:hover {
+            color: $black__shade__3;
+          }
+        }
+      }
+    }
+
+    .logout-btn {
+      .logout {
+        background: $accent__color;
+        border-radius: 5px;
+        padding: 0.4rem 1.2rem;
+        margin: 0 1rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    .logo {
+      a {
+        font-size: 1rem;
+      }
+    }
+    .nav {
+      ul {
+        li {
+          margin: 0 0.5rem;
+          a {
+            font-size: 13px;
+          }
+          .email {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: '455px') {
+    .nav {
+      ul {
+        li {
+          margin: 0;
+          a {
+            font-size: 13px;
+          }
+          .account {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $phone) {
+    .logo {
+      a {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// forms
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='password'] {
+  width: 100%;
+  height: 35px;
+  border-radius: 3px;
+  border: 1px solid #dde8db;
+  transition: 0.2s;
+  padding-left: 0.7rem;
+  color: rgb(24, 23, 23);
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    border: 1.5px solid #bdbbbb;
+    transition: 0.2s;
+  }
+}
+
+label {
+  color: #525050;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.forms {
+  max-width: 400px;
+  margin: 5rem auto;
+  padding: 2rem;
+  border: 1px solid #bdbbbb;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.32);
+}
+
+.error {
+  font-size: 13px;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: $error__message;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  background: $primary__color;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: all 0.2s;
+
+  &:hover {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.32);
+  }
+}
+
+.table {
+  table {
+    width: 100%;
+    border-spacing: 0px;
+    color: $black__shade__2;
+  }
+
+  tr {
+    margin-bottom: 20px;
+  }
+
+  th {
+    width: 250px;
+    text-align: left;
+    font-size: 16px;
+    padding: 0.2rem;
+    background: $primary__color;
+  }
+
+  td {
+    width: 250px;
+    font-size: 15px;
+    padding: 0.2rem;
+  }
+
+  tr:nth-child(even) {
+    background-color: $background__3;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+}
+
+.homepage-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 600px;
+  max-width: 600px;
+  box-shadow: $shadow;
+
+  .card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    p {
+      color: $black__shade__4;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+
+  .card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      h3 {
+        font-weight: 600;
+        text-transform: capitalize;
+        color: $secondary__color;
+        font-size: 20px;
+        margin-bottom: 0.5rem;
+      }
+      span {
+        font-size: 14px;
+        font-weight: 500;
+        color: $black__shade__4;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+    p {
+      font-size: 36px;
+      font-weight: 700;
+      color: $black__shade__2;
+
+      span {
+        font-weight: 400;
+        color: $black__shade__3;
+        font-size: 24px;
+      }
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: $phone) {
+    .card-body {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+
+//account details modal styles
+.account-details {
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    margin: 0.5rem 0;
+    color: $black__shade__3;
+  }
+
+  .acc-titles {
+    p {
+      color: $secondary__color;
+      font-weight: 600;
+    }
+  }
+}
+
+//acc button styles
+.account-details-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  background: $accent__color;
+}
+
+//account advert card
+.advert-card {
+  padding: 1.5rem;
+  background: $primary__color;
+  color: $black__shade__1;
+  max-width: 450px;
+  box-shadow: $shadow;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+
+  .card-description {
+    p {
+      font-size: 15px;
+      font-style: italic;
+    }
+  }
+
+  .card-image {
+    img {
+      height: 120px;
+      width: 120px;
+    }
+  }
+
+  @media screen and (max-width: $phone) {
+    .card-image {
+      img {
+        height: 80px;
+        width: 80px;
+      }
+    }
+  }
+}
+
+//homepage
+.homepage {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1rem;
+
+  @media screen and (max-width: $tablet) {
+    flex-direction: column;
+  }
+}
+
+//transactions styling
+.transactions {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: $shadow;
+  width: 100%;
+  margin-top: 2rem;
+}
