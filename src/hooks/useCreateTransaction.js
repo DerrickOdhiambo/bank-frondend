@@ -11,7 +11,7 @@ export const useCreateTransactions = () => {
 
     //create bank account
     const newTransactions = await fetch(
-      'http://localhost:5000/api/transactions/',
+      'https://badbankproject-api.onrender.com/api/transactions/',
       {
         method: 'POST',
         headers: {

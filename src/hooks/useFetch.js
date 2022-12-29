@@ -7,11 +7,14 @@ export const useFetch = () => {
   const token = user?.token;
 
   const fetchTransactions = async () => {
-    const response = await fetch('http://localhost:5000/api/transactions/', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      'https://badbankproject-api.onrender.com/api/transactions/',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     const json = await response.json();
 
     console.log(json);

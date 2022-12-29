@@ -13,7 +13,7 @@ export const useCreateAccount = () => {
 
     //create bank account
     const bankAccount = await fetch(
-      'http://localhost:5000/api/account/create-account',
+      'https://badbankproject-api.onrender.com/create-account',
       {
         method: 'POST',
         headers: {
