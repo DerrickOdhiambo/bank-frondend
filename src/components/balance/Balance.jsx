@@ -29,7 +29,7 @@ const Balance = () => {
 
       if (token && id) {
         const response = await fetch(
-          `http://localhost:5000/api/account/${id}`,
+          `https://badbankproject-api.onrender.com/api/account/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
