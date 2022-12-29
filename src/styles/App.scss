@@ -248,6 +248,48 @@ button {
   tr:hover {
     background-color: #ddd;
   }
+
+  //media queries
+  @media screen and (max-width: $large-phone) {
+    border-spacing: 3px;
+
+    tr {
+      margin-bottom: 10px;
+    }
+    th {
+      width: 180px;
+    }
+  }
+
+  @media screen and (max-width: '466px') {
+    border-spacing: 1.5px;
+
+    tr {
+      margin-bottom: 10px;
+    }
+    th {
+      width: 60px;
+      font-size: 15px;
+    }
+    td {
+      width: 60px;
+      font-size: 13px;
+    }
+  }
+
+  @media screen and (max-width: '400px') {
+    border-spacing: 1.5px;
+
+    tr {
+      margin-bottom: 7px;
+    }
+    th {
+      font-size: 12px;
+    }
+    td {
+      font-size: 12px;
+    }
+  }
 }
 
 .homepage-card {
