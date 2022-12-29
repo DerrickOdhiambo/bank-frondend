@@ -27,7 +27,7 @@ const Transaction = () => {
     e.preventDefault();
 
     const response = await fetch(
-      `http://localhost:5000/api/account/${account._id}`,
+      `https://badbankproject-api.onrender.com/api/account/${account._id}`,
       {
         method: 'PATCH',
         headers: {
