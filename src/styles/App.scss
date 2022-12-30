@@ -80,7 +80,7 @@ a {
         margin: 0 1rem;
         a {
           color: $black__shade__2;
-          font-weight: 400;
+          font-weight: 500;
           font-size: 15px;
           transition: all 0.2s;
 
@@ -96,11 +96,17 @@ a {
         background: $accent__color;
         border-radius: 5px;
         padding: 0.4rem 1.2rem;
-        margin: 0 1rem;
       }
       @media screen and (max-width: $tablet) {
         .logout {
-          margin-left: 1rem;
+          margin-left: 0.5rem;
+        }
+      }
+
+      @media screen and (max-width: '600px') {
+        .logout {
+          font-size: 12px;
+          padding: 0.3rem 1rem;
         }
       }
     }
@@ -341,7 +347,7 @@ button {
     justify-content: space-between;
     align-items: center;
 
-    div {
+    .savings {
       h3 {
         font-weight: 600;
         text-transform: capitalize;
@@ -363,6 +369,7 @@ button {
         color: $black__shade__4;
         font-size: 12px;
         font-weight: 600;
+        margin-top: 1rem;
         margin-bottom: 0.5rem;
         display: none;
 
@@ -482,7 +489,14 @@ button {
   p {
     margin-bottom: 0.5rem;
     @media screen and (max-width: $phone) {
-      font-size: 13px;
+      font-size: 14px;
     }
   }
+}
+
+.spinner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

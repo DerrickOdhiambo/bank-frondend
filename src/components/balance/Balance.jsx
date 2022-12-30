@@ -73,7 +73,7 @@ const Balance = () => {
           <p className='available-funds'>Available funds</p>
         </div>
         <div className='card-body'>
-          <div>
+          <div className='savings'>
             <h3>Savings account</h3>
             <span>
               {'0000 ' + accNum} <HiOutlineArrowNarrowRight />
