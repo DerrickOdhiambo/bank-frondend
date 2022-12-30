@@ -2,11 +2,13 @@ import { useEffect } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useFetch } from '../hooks/useFetch';
 
+import Spinner from '../components/spinner/Spinner';
+
 const Transactions = () => {
   const { user } = useAuthContext();
   const token = user?.token;
 
-  const { fetchTransactions, userTransactions } = useFetch();
+  const { fetchTransactions, userTransactions, isLoading, error } = useFetch();
 
   useEffect(() => {
     const transactions = async () => {
@@ -18,9 +20,12 @@ const Transactions = () => {
     // eslint-disable-next-line
   }, []);
 
+  if (isLoading) return <Spinner />;
+
   return (
     <div>
       <h3>Transactions</h3>
+      {error && <div className='error'>{error}</div>}
       <div className='transcations'>
         <div className='table'>
           <table>

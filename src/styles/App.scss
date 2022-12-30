@@ -98,6 +98,11 @@ a {
         padding: 0.4rem 1.2rem;
         margin: 0 1rem;
       }
+      @media screen and (max-width: $tablet) {
+        .logout {
+          margin-left: 1rem;
+        }
+      }
     }
   }
 
@@ -172,6 +177,10 @@ input[type='password'] {
     border: 1.5px solid #bdbbbb;
     transition: 0.2s;
   }
+
+  @media screen and (max-width: '330px') {
+    font-size: 13px;
+  }
 }
 
 label {
@@ -217,6 +226,10 @@ button {
 
   &:hover {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.32);
+  }
+
+  @media screen and (max-width: '473px') {
+    font-size: 12px;
   }
 }
 
@@ -315,6 +328,12 @@ button {
       font-size: 12px;
       font-weight: 600;
     }
+
+    @media screen and (max-width: $phone) {
+      .available-funds {
+        display: none;
+      }
+    }
   }
 
   .card-body {
@@ -339,15 +358,28 @@ button {
         gap: 20px;
       }
     }
-    p {
-      font-size: 36px;
-      font-weight: 700;
-      color: $black__shade__2;
+    .funds {
+      .responsive-funds {
+        color: $black__shade__4;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: none;
 
-      span {
-        font-weight: 400;
-        color: $black__shade__3;
-        font-size: 24px;
+        @media screen and (max-width: $phone) {
+          display: block;
+        }
+      }
+      p {
+        font-size: 36px;
+        font-weight: 700;
+        color: $black__shade__2;
+
+        span {
+          font-weight: 400;
+          color: $black__shade__3;
+          font-size: 24px;
+        }
       }
     }
   }
@@ -446,4 +478,11 @@ button {
   box-shadow: $shadow;
   width: 100%;
   margin-top: 2rem;
+
+  p {
+    margin-bottom: 0.5rem;
+    @media screen and (max-width: $phone) {
+      font-size: 13px;
+    }
+  }
 }

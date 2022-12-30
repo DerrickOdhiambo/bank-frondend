@@ -74,7 +74,7 @@ const Transaction = () => {
             onChange={(e) =>
               setFormData({ ...formData, transactionType: e.value })
             }
-            placeholder={'Please choose the transaction you want...'}
+            placeholder={'Choose transaction...'}
           />
         </div>
         <div className='form-control'>

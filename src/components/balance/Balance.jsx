@@ -4,6 +4,7 @@ import { useAuthContext } from '../../hooks/useAuthContext';
 import jwt from 'jwt-decode';
 
 import Modal from '../modal/Modal';
+import Spinner from '../spinner/Spinner';
 
 import { numberWithSpaces, roundToTwo } from '../../utils/utils';
 
@@ -62,16 +63,14 @@ const Balance = () => {
     accNum = numberWithSpaces(account?.accountNumber);
   }
 
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
+  if (isLoading) return <Spinner />;
 
   return (
     <div className='homepage'>
       <div className='homepage-card'>
         <div className='card-heading'>
           <p>Main account</p>
-          <p>Available funds</p>
+          <p className='available-funds'>Available funds</p>
         </div>
         <div className='card-body'>
           <div>
@@ -80,9 +79,12 @@ const Balance = () => {
               {'0000 ' + accNum} <HiOutlineArrowNarrowRight />
             </span>
           </div>
-          <p>
-            {roundToTwo(account?.balance)} <span>$</span>
-          </p>
+          <div className='funds'>
+            <p className='responsive-funds'>Available funds</p>
+            <p>
+              {roundToTwo(account?.balance)} <span>$</span>
+            </p>
+          </div>
         </div>
         <div className='card-footer'>
           <button
