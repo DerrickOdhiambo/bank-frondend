@@ -187,6 +187,10 @@ label {
   border: 1px solid #bdbbbb;
   border-radius: 5px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.32);
+
+  @media screen and (max-width: '399px') {
+    width: 100%;
+  }
 }
 
 .error {
