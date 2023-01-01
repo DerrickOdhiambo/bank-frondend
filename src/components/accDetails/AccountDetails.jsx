@@ -2,9 +2,9 @@ const AccountDetails = ({ account }) => {
   return (
     <div className='account-details'>
       <div className='acc-titles'>
-        <p>Account Name :</p>
-        <p>Account Number :</p>
-        <p>Account Date Created :</p>
+        <p>Name :</p>
+        <p>Number :</p>
+        <p>Date :</p>
       </div>
       <div>
         <p>{account.name}</p>

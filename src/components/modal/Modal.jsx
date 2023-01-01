@@ -1,6 +1,8 @@
 import { useState, forwardRef, useImperativeHandle } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
+
+import { MdClose } from 'react-icons/md';
 import './Modal.scss';
 
 const Modal = forwardRef((props, ref) => {
@@ -32,7 +34,12 @@ const Modal = forwardRef((props, ref) => {
             exit={{ scale: 0 }}
             className='modal__content__wrapper'
           >
-            <motion.div className='modal__content'>{props.children}</motion.div>
+            <motion.div className='modal__content'>
+              <div className='modal-close' onClick={() => setOpen(false)}>
+                <MdClose />
+              </div>
+              {props.children}
+            </motion.div>
           </motion.div>
         </>
       )}

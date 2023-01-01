@@ -1,15 +1,10 @@
 import { useState } from 'react';
-import SelectDropdown from '../select/SelectDropdown';
 import { useAccountContext } from '../../hooks/useAccountContext';
 import { useAuthContext } from '../../hooks/useAuthContext';
 
 import Spinner from '../spinner/Spinner';
 
-const options = [
-  { value: 'deposit', label: 'Deposit' },
-  { value: 'withdrawal', label: 'Withdraw' },
-];
-const Transaction = () => {
+const Transfer = () => {
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
@@ -18,7 +13,7 @@ const Transaction = () => {
   const { user } = useAuthContext();
 
   const [formData, setFormData] = useState({
-    transactionType: '',
+    accountNumber: 0,
     amount: 0,
   });
 
@@ -29,7 +24,7 @@ const Transaction = () => {
     setIsLoading(true);
 
     const response = await fetch(
-      `https://badbankproject-api.onrender.com/api/account/${account._id}`,
+      `https://badbankproject-api.onrender.com/api/account/transfer/${account._id}`,
       {
         method: 'PATCH',
         headers: {
@@ -39,23 +34,23 @@ const Transaction = () => {
         body: JSON.stringify(formData),
       }
     );
-    const json = await response.json();
+    const { message, updatedUserAccount, error } = await response.json();
 
     if (!response.ok) {
       setIsLoading(false);
-      setError(json.error);
+      setError(error);
     }
 
     if (response.ok) {
-      setMessage(`You have successfully deposited money to your account`);
       setError(null);
       setIsLoading(false);
+      setMessage(message);
       setFormData({
-        transactionType: 'deposit',
+        accountNumber: 0,
         amount: 0,
       });
 
-      dispatch({ type: 'CREATE_ACCOUNT', payload: json });
+      dispatch({ type: 'CREATE_ACCOUNT', payload: updatedUserAccount });
     }
   };
 
@@ -64,19 +59,21 @@ const Transaction = () => {
   }
 
   return (
-    <div className='transactions'>
+    <div className='transfer-funds'>
       {message && <div className='success-message'>{message}</div>}
       <h4>Transact</h4>
       <p>You can easily deposit and withdraw money from your account</p>
       <form onSubmit={handleSubmit}>
         <div className='form-control'>
-          <SelectDropdown
-            value={formData.transactionType}
-            options={options}
+          <label htmlFor='accountNumber'>Account Number</label>
+          <input
+            type='number'
+            name='accountNumber'
+            id='accountNumber'
             onChange={(e) =>
-              setFormData({ ...formData, transactionType: e.value })
+              setFormData({ ...formData, accountNumber: e.target.value })
             }
-            placeholder={'Choose transaction...'}
+            value={formData.accountNumber}
           />
         </div>
         <div className='form-control'>
@@ -91,10 +88,8 @@ const Transaction = () => {
             value={formData.amount}
           />
         </div>
-        <button disabled={!formData.transactionType || !formData.amount}>
-          {formData.transactionType === 'withdrawal'
-            ? 'Withdraw Funds'
-            : 'Deposit Funds'}
+        <button disabled={!formData.accountNumber || !formData.amount}>
+          Tranfer Funds
         </button>
         {error && <div className='error'>{error}</div>}
       </form>
@@ -102,4 +97,4 @@ const Transaction = () => {
   );
 };
 
-export default Transaction;
+export default Transfer;

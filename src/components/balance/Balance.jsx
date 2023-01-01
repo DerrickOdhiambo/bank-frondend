@@ -5,17 +5,19 @@ import jwt from 'jwt-decode';
 
 import Modal from '../modal/Modal';
 import Spinner from '../spinner/Spinner';
+import AccountDetails from '../accDetails/AccountDetails';
+import Transfer from '../tranferFunds/Transfer';
 
 import { numberWithSpaces, roundToTwo } from '../../utils/utils';
 
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
-import AccountDetails from '../accDetails/AccountDetails';
 
 const Balance = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
 
   const modalRef1 = useRef();
+  const modalRef2 = useRef();
 
   const { account, dispatch } = useAccountContext();
   const { user } = useAuthContext();
@@ -76,7 +78,7 @@ const Balance = () => {
           <div className='savings'>
             <h3>Savings account</h3>
             <span>
-              {'0000 ' + accNum} <HiOutlineArrowNarrowRight />
+              {accNum} <HiOutlineArrowNarrowRight />
             </span>
           </div>
           <div className='funds'>
@@ -87,6 +89,15 @@ const Balance = () => {
           </div>
         </div>
         <div className='card-footer'>
+          <button
+            className='account-details-btn transfer'
+            onClick={() => modalRef2.current.open()}
+          >
+            Transfer Funds
+          </button>
+          <Modal ref={modalRef2}>
+            <Transfer />
+          </Modal>
           <button
             className='account-details-btn'
             onClick={() => modalRef1.current.open()}
@@ -99,6 +110,7 @@ const Balance = () => {
               <AccountDetails account={account} />
             </div>
           </Modal>
+
           {error && <div className='error'>{error}</div>}
         </div>
       </div>

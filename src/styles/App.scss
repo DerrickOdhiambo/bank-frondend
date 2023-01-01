@@ -51,9 +51,11 @@ a {
   justify-content: space-between;
   padding: 1rem 0;
   margin-bottom: 1.5rem;
-  // background: $secondary__color;
-  // border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
-  // box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.32);
+
+  @media screen and (max-width: $phone) {
+    margin-bottom: 0.5rem;
+  }
+
   .logo {
     a {
       font-size: 1.5rem;
@@ -209,6 +211,9 @@ label {
 }
 
 .error {
+  border: 1px solid $error__message;
+  padding: 0.5rem;
+  border-radius: 5px;
   font-size: 13px;
   margin-top: 1rem;
   font-weight: 500;
@@ -411,6 +416,10 @@ button {
   p {
     margin: 0.5rem 0;
     color: $black__shade__3;
+
+    @media screen and (max-width: $phone) {
+      font-size: 14px;
+    }
   }
 
   .acc-titles {
@@ -425,8 +434,32 @@ button {
 .account-details-btn {
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
-  border-radius: 10px;
-  background: $accent__color;
+  border-radius: 5px;
+  background: $primary__color;
+
+  &:hover {
+    background: #6de4ac;
+  }
+
+  &.transfer {
+    margin-right: 1rem;
+    background: $secondary__color;
+    color: $font__color__1;
+
+    &:hover {
+      background: #31748a;
+    }
+  }
+
+  @media screen and (max-width: '361px') {
+    width: 100%;
+    margin-top: 0.75rem;
+
+    &.transfer {
+      margin-right: 0;
+      margin-top: 1rem;
+    }
+  }
 }
 
 //account advert card
@@ -445,6 +478,10 @@ button {
     p {
       font-size: 15px;
       font-style: italic;
+
+      @media screen and (max-width: $phone) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -499,4 +536,60 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.success-message {
+  border: 1px solid green;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: green;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.modal-close {
+  display: flex;
+  justify-content: flex-end;
+
+  svg {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+//modal
+.modal__backdrop {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba($color: #000000, $alpha: 0.7);
+  z-index: 999;
+}
+.modal__content__wrapper {
+  position: fixed;
+  width: 95%;
+  height: fit-content;
+  background: white;
+  border-radius: 5px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  z-index: 1000;
+
+  @media screen and (max-width: $phone) {
+    padding: 1rem;
+  }
+}
+
+.transfer-funds {
+  p {
+    @media screen and (max-width: $phone) {
+      font-size: 14px;
+    }
+  }
 }
