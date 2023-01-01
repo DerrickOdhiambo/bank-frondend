@@ -27,7 +27,9 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to='/transactions'>Transactions</Link>
+                <Link to='/transactions' className='transactions-link'>
+                  Transactions
+                </Link>
               </li>
               <li>
                 <Link className='email'>{user.email}</Link>

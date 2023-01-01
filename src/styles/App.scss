@@ -52,8 +52,8 @@ a {
   padding: 1rem 0;
   margin-bottom: 1.5rem;
 
-  @media screen and (max-width: $phone) {
-    margin-bottom: 0.5rem;
+  @media screen and (max-width: '455px') {
+    margin-bottom: 0rem;
   }
 
   .logo {
@@ -95,13 +95,18 @@ a {
 
     .logout-btn {
       .logout {
-        background: $accent__color;
+        background: $secondary__color;
+        color: $font__color__1;
         border-radius: 5px;
         padding: 0.4rem 1.2rem;
+
+        &:hover {
+          background: #31748a;
+        }
       }
       @media screen and (max-width: $tablet) {
         .logout {
-          margin-left: 0.5rem;
+          margin-left: 0;
         }
       }
 
@@ -129,6 +134,7 @@ a {
           }
           .email {
             display: none;
+            margin: 0;
           }
         }
       }
@@ -139,11 +145,11 @@ a {
     .nav {
       ul {
         li {
-          margin-right: 0.5rem;
           a {
             font-size: 13px;
           }
-          .account {
+          .account,
+          .transactions-link {
             display: none;
           }
         }
@@ -154,8 +160,10 @@ a {
   @media screen and (max-width: $phone) {
     .logo {
       a {
-        span {
-          display: none;
+        gap: 4px;
+        img {
+          height: 25px;
+          width: 25px;
         }
       }
     }
@@ -465,7 +473,7 @@ button {
 //account advert card
 .advert-card {
   padding: 1.5rem;
-  background: $primary__color;
+  background: $accent__color;
   color: $black__shade__1;
   max-width: 450px;
   box-shadow: $shadow;
@@ -590,6 +598,36 @@ button {
   p {
     @media screen and (max-width: $phone) {
       font-size: 14px;
+    }
+  }
+}
+
+//breadcrumb
+.breadcrumb {
+  display: none;
+
+  @media screen and (max-width: '455px') {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: $shadow;
+    border-radius: 5px;
+
+    a {
+      font-weight: 500;
+      font-size: 14px;
+      color: #2e2626;
+    }
+
+    .box {
+      height: 8px;
+      width: 8px;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+      transform: rotate(315deg);
     }
   }
 }

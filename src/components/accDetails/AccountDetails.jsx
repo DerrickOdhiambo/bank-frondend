@@ -8,7 +8,7 @@ const AccountDetails = ({ account }) => {
       </div>
       <div>
         <p>{account.name}</p>
-        <p>{'0000' + account.accountNumber}</p>
+        <p>{account.accountNumber}</p>
         <p>{new Date(account.createdAt).toLocaleDateString()}</p>
       </div>
     </div>
