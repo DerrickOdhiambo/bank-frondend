@@ -49,7 +49,7 @@ const Transaction = () => {
     }
 
     if (response.ok) {
-      setMessage(`You have successfully deposited money to your account`);
+      setMessage(`Your transaction was successful`);
       setError(null);
       setIsLoading(false);
       setFormData({
