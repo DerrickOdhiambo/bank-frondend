@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SelectDropdown from '../select/SelectDropdown';
 import { useAccountContext } from '../../hooks/useAccountContext';
 import { useAuthContext } from '../../hooks/useAuthContext';
+import { useCreateTransactions } from '../../hooks/useCreateTransaction';
 
 import Spinner from '../spinner/Spinner';
 
@@ -16,6 +17,7 @@ const Transaction = () => {
 
   const { account, dispatch } = useAccountContext();
   const { user } = useAuthContext();
+  const { transactions } = useCreateTransactions();
 
   const [formData, setFormData] = useState({
     transactionType: '',
@@ -56,6 +58,8 @@ const Transaction = () => {
       });
 
       dispatch({ type: 'CREATE_ACCOUNT', payload: json });
+
+      await transactions(formData, token);
     }
   };
 
